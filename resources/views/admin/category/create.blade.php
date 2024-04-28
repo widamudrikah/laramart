@@ -40,6 +40,7 @@
                         <input type="checkbox" name="status">
                     </div>
 
+                    
                     <div class="col-md-12">
                         <h4>SEO Tags</h4>
                     </div>

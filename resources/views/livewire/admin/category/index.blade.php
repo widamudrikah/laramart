@@ -22,6 +22,8 @@
         </div>
     </div>
 
+    <!-- end modal -->
+
     <div class="row">
         <div class="col-md-12 grid-margin">
             @if (session('message'))
@@ -67,4 +69,14 @@
 
 </div>
 
-@livewireScripts
+
+<!-- untuk menghilangkan modal -->
+@push('script')
+
+<script>
+    window.addEventListener('close-modal', event => {
+        $('#deleteModal').modal('hide');
+    })
+</script>
+
+@endpush

@@ -31,30 +31,10 @@ class Index extends Component
         
         $category->delete();
         session()->flash('message', 'Category Deleted');
+
+        // untuk meghilangkan modal setelah dipencet
+        $this->dispatch('close-modal');
     }
-
-
-    // public function destroyCategory() {
-    //     try {
-    //         $category = Category::find($this->category_id);
-    
-    //         if ($category) {
-    //             $path = 'upload/category/' . $category->image;
-    
-    //             if (File::exists($path)) {
-    //                 File::delete($path);
-    //             }
-    
-    //             $category->delete();
-    //             session()->flash('message', 'Category Deleted');
-    //         } else {
-    //             session()->flash('error', 'Category not found');
-    //         }
-    //     } catch (\Exception $e) {
-    //         session()->flash('error', 'Error deleting category: ' . $e->getMessage());
-    //     }
-    // }
-    
 
     public function render()
     {

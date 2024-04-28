@@ -36,7 +36,6 @@ class CategoryController extends Controller
             $category->image = $fileName;
         }
         
-        
         $category->meta_title = $validateData['meta_title'];
         $category->meta_keyword = $validateData['meta_keyword'];
         $category->meta_description = $validateData['meta_description'];
@@ -47,12 +46,10 @@ class CategoryController extends Controller
         return redirect()->route('category-index')->with('message', 'Category Added Successfully');
     }
 
-
     public function edit($id) {
         $category = Category::findOrFail($id);
         return view('admin.category.edit', compact('category'));
     }
-
 
     public function update(CategoryRequest $request, $id) {
         $validateData = $request->validated();
@@ -61,9 +58,7 @@ class CategoryController extends Controller
         $category->name = $validateData['name'];
         $category->slug = Str::slug($validateData['slug']);
         $category->description = $validateData['description'];
-
         // menghapus image
-
         if($request->hasFile('image')){
 
             $path = 'upload/category/'.$category->image;
@@ -78,7 +73,6 @@ class CategoryController extends Controller
             $file->move('upload/category', $fileName);
             $category->image = $fileName;
         }
-        
         
         $category->meta_title = $validateData['meta_title'];
         $category->meta_keyword = $validateData['meta_keyword'];
