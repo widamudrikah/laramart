@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ColorController;
 use App\Http\Controllers\Admin\DashbordController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\SliderController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Livewire\Livewire;
@@ -19,9 +20,11 @@ use Livewire\Livewire;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+Route::get('/', [App\Http\Controllers\Frontend\FrontendController::class, 'index']);
 
 Auth::routes();
 
@@ -50,9 +53,12 @@ Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function() {
         Route::get('products/edit/{id}', 'edit')->name('product-edit');
         Route::put('products/update/{id}', 'update')->name('product-update');
         Route::get('products/delete/{id}', 'destroy')->name('product-delete');
-
         // delete image
         Route::get('products/delete-image/{id}', 'deleteImage')->name('product-delete-image');
+
+        // AJAX
+        Route::post('product-color/{prod_color_id}', 'updateProdColorQty');
+        Route::get('product-color/{prod_color_id}/delete', 'deleteProdColorQty');
     });
 
     // Brand
@@ -68,5 +74,15 @@ Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function() {
         Route::get('/colors/delete/{id}','destroy')->name('colors-delete');
     });
     
+
+    // Slider
+    Route::controller(SliderController::class)->group(function(){
+        Route::get('/slider', 'index')->name('slider-index');
+        Route::get('/slider/create', 'create')->name('slider-create');
+        Route::post('/slider/store', 'store')->name('slider-store');
+        Route::get('/slider/edit/{slider}', 'edit')->name('slider-edit');
+        Route::put('/slider/edit/{slider}', 'update')->name('slider-update');
+        Route::get('/slider/delete/{slider}', 'delete')->name('slider-delete');
+    });
     
 });

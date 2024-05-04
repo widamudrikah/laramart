@@ -7,7 +7,8 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <!-- title diaganti yahhh -->
+    <title> @yield('title')</title>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
@@ -15,6 +16,7 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="{{ asset('assets/css/bootsrap.min.css')}}">
+    <link rel="stylesheet" href="{{ asset('assets/css/custome.css')}}">
 
     <!-- livewire -->
     @livewireStyles
@@ -75,6 +77,8 @@
             </div>
         </nav>
 
+
+        <!-- content ada disini -->
         <main class="py-4">
             @yield('content')
         </main>

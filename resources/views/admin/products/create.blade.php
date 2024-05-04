@@ -145,7 +145,7 @@
             <div class="tab-pane fade border p-3" id="color-tab-pane" role="tabpanel" aria-labelledby="color-tab" tabindex="0">
               <div class="mb-3">
                 <label for="">Select Color</label>
-                <hr/>
+                <hr />
                 <div class="row">
                   @forelse($colors as $colorItem)
                   <div class="col-md-3">
@@ -155,8 +155,6 @@
                       <br>
                       Quantity : <input type="number" name="colorquantity[{{$colorItem->id}}]" style="width: 70px; border: 1px solid">
                     </div>
-                    
-
                   </div>
                   @empty
                   <div class="col-md-12">

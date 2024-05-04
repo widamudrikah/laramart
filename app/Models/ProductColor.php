@@ -16,4 +16,9 @@ class ProductColor extends Model
         'color_id',
         'quantity',
     ];
+
+    // tambahkan ini ketika ingin menampilkan nama color ketika proses editing colr
+    public function color(){
+        return $this->belongsTo(Color::class, 'color_id', 'id');
+    }
 }
