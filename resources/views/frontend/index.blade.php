@@ -4,11 +4,8 @@
 @section('content')
 
 <div id="carouselExampleCaptions" class="carousel slide">
-
     <div class="carousel-inner">
-
         @foreach($sliders as $key => $sliderItem)
-
         <div class="carousel-item {{$key == 0 ? 'active' : '' }}">
             <img src="{{asset("$sliderItem->image")}}" class="d-block w-100" alt="...">
             <!-- <div class="carousel-caption d-none d-md-block">
@@ -22,7 +19,7 @@
                         {{$sliderItem->title}}
                     </h1>
                     <p>
-                    {{$sliderItem->description}}
+                        {{$sliderItem->description}}
                     </p>
                     <div>
                         <a href="#" class="btn btn-slider">
@@ -32,11 +29,8 @@
                 </div>
             </div>
         </div>
-
         @endforeach
-
     </div>
-
 
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>

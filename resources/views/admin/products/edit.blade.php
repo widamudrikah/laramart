@@ -273,23 +273,19 @@
     // Update data
     $(document).on('click', '.updateProductColorBtn', function() {
 
-      var product_id = "{{ $product->id }}"; //untuk mendaatkan id produk
-
-      var prod_color_id = $(this).val(); //untuk mendapatkan id color
+      var product_id = "{{ $product->id }}";
+      var prod_color_id = $(this).val();
       var quantity = $(this).closest('.prod-color-tr').find('.productColorQuantity').val(); //untuk mendapatkan kuantitas yang ada pada tag input
     
       if(quantity <= 0) {
         alert('Quantity is required');
           return false;
       }
-
       var data = {
         'product_id': product_id,
         'quantity': quantity
       };
 
-
-      // ini kode ajax, kalo udah selesai nulis kode ini baru ke laravel ajax, dan kopi kodenya sebelum click
       $.ajax({
         type: "POST",
         url: "/admin/product-color/" +prod_color_id ,

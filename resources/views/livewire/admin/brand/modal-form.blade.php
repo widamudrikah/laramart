@@ -9,6 +9,20 @@
 
             <form wire:submit.prevent="storeBrand">
                 <div class="modal-body">
+                <!-- Menambahkan category -->
+                    <div class="mb-3">
+                        <label for="category_id">Select Category</label>
+                        <select wire:model.defer="category_id" required class="form-control">
+                            <option value="">--Select Category--</option>
+                            @foreach($categories as $category)
+                            <option value="{{ $category->id }}">{{ $category->name }}</option>
+                            @endforeach
+                        </select>
+                        @error('category_id')
+                        <small class="text-danger">{{ $message }}</small>
+                        @enderror
+                    </div>
+
                     <div class="mb-3">
                         <label for="">Brand Name</label>
                         <input type="text" wire:model.defer="name" class="form-control" placeholder="Brand Name">
@@ -16,6 +30,7 @@
                         <small class="text-danger">{{ $message }}</small>
                         @enderror
                     </div>
+
                     <div class="mb-3">
                         <label for="">Brand Slug</label>
                         <input type="text" wire:model.defer="slug" class="form-control" placeholder="Brand Slug">
@@ -23,6 +38,7 @@
                         <small class="text-danger">{{ $message }}</small>
                         @enderror
                     </div>
+
                     <div class="mb-3">
                         <label for="">Status</label><br>
                         <input type="checkbox" wire:model.defer="status"> Checked=Hidden, Un-Checked= Visible
@@ -30,6 +46,7 @@
                         <small class="text-danger">{{ $message }}</small>
                         @enderror
                     </div>
+
                 </div>
                 <div class="modal-footer">
                     <button type="button" wire:click="closeModal" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -61,6 +78,20 @@
             <div wire:loading.remove>
                 <form wire:submit.prevent="updateBrand">
                     <div class="modal-body">
+                        <!-- Menambahkan category -->
+                    <div class="mb-3">
+                        <label for="category_id">Select Category</label>
+                        <select wire:model.defer="category_id" required class="form-control">
+                            <option value="">--Select Category--</option>
+                            @foreach($categories as $category)
+                            <option value="{{ $category->id }}">{{ $category->name }}</option>
+                            @endforeach
+                        </select>
+                        @error('category_id')
+                        <small class="text-danger">{{ $message }}</small>
+                        @enderror
+                    </div>
+
                         <div class="mb-3">
                             <label for="">Brand Name</label>
                             <input type="text" wire:model.defer="name" class="form-control" placeholder="Brand Name">

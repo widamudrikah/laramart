@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\ColorController;
 use App\Http\Controllers\Admin\DashbordController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\SliderController;
+use App\Http\Controllers\Frontend\FrontendController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Livewire\Livewire;
@@ -24,7 +25,12 @@ use Livewire\Livewire;
 //     return view('welcome');
 // });
 
-Route::get('/', [App\Http\Controllers\Frontend\FrontendController::class, 'index']);
+Route::controller(FrontendController::class)->group(function(){
+    Route::get('/', 'index');
+    Route::get('/collections', 'categories')->name('categories');
+    Route::get('/collections/{category_slug}', 'products')->name('products-category');
+    Route::get('/collections/{category_slug}/{product_slug}', 'productView')->name('products-view');
+});
 
 Auth::routes();
 
