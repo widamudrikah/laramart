@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\DashbordController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Frontend\FrontendController;
+use App\Http\Controllers\Frontend\WishlistController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Livewire\Livewire;
@@ -30,6 +31,12 @@ Route::controller(FrontendController::class)->group(function(){
     Route::get('/collections', 'categories')->name('categories');
     Route::get('/collections/{category_slug}', 'products')->name('products-category');
     Route::get('/collections/{category_slug}/{product_slug}', 'productView')->name('products-view');
+});
+
+Route::middleware(['auth'])->group(function(){
+    Route::controller(WishlistController::class)->group(function(){
+        Route::get('/wishlist', 'index')->name('wishlist');
+    });
 });
 
 Auth::routes();

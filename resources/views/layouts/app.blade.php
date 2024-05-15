@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -21,7 +22,6 @@
     <!-- fontawesome -->
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
-
     <!-- Styles -->
     <link rel="stylesheet" href="{{ asset('assets/css/bootsrap.min.css')}}">
     <link rel="stylesheet" href="{{ asset('assets/css/custome.css')}}">
@@ -29,10 +29,11 @@
     <!-- livewire -->
     @livewireStyles
 </head>
+
 <body>
     <div id="app">
 
-    @include('layouts.include.frontend.navbar')
+        @include('layouts.include.frontend.navbar')
 
         <!-- content ada disini -->
         <!-- classnya dihapus yaa wida -->
@@ -48,4 +49,5 @@
 
     @livewireScripts
 </body>
+
 </html>
