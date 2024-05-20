@@ -1,7 +1,7 @@
 <div>
     <div class="py-3 py-md-5">
         <div class="container">
-            <!-- login dulu -->
+            <!-- login dulu, ini kalo mau nambahin ke wishlist -->
             @if (session()->has('message'))
                 <div class="alert alert-success">
                     {{ session('message') }}
@@ -34,31 +34,32 @@
                         <!-- color -->
                         <div>
                             @if($product->productColors->count() > 0)
-
-                            @if($product->productColors)
-                            @foreach($product->productColors as $colorItem)
-                            <!-- <input type="radio" name="colorSelection" value="{{$colorItem->id}}"> {{$colorItem->color->name}} -->
-                            <label class="colorSelectionLabel" style="background-color: {{$colorItem->color->code}};" wire:click="colorSelected({{ $colorItem->id }})">
-                                {{$colorItem->color->name}}
-                            </label>
-                            @endforeach
-                            @endif
+                            <!-- ini kalo ada warna lebih dari satu -->
+                                @if($product->productColors)
+                                    @foreach($product->productColors as $colorItem)
+                                    <!-- <input type="radio" name="colorSelection" value="{{$colorItem->id}}"> {{$colorItem->color->name}} -->
+                                    <label class="colorSelectionLabel" style="background-color: {{$colorItem->color->code}};" wire:click="colorSelected({{ $colorItem->id }})">
+                                        {{$colorItem->color->name}}
+                                    </label>
+                                    @endforeach
+                                @endif
+                            <!-- ini end dari menampilkan warna -->
 
                             <div class="mt-2">
                                 @if($this->prodColorSelectQuantity == 'outOfStock')
-                                <label class="btn btn-sm py-1 text-white bg-danger">Out Of Stock</label>
-                                @elseif($this->prodColorSelectQuantity > 0)
-                                <label class="btn btn-sm py-1 text-white bg-success">In Stock</label>
+                                        <label class="btn btn-sm py-1 text-white bg-danger">Out Of Stock</label>
+                                    @elseif($this->prodColorSelectQuantity > 0)
+                                        <label class="btn btn-sm py-1 text-white bg-success">In Stock</label>
                                 @endif
                             </div>
 
                             @else
 
-                            @if ($product->quantity)
-                            <label class="btn btn-sm py-1 text-white bg-success">In Stock</label>
-                            @else
-                            <label class="btn btn-sm py-1 text-white bg-danger">Out Stock</label>
-                            @endif
+                                @if ($product->quantity)
+                                    <label class="btn btn-sm py-1 text-white bg-success">In Stock</label>
+                                @else
+                                    <label class="btn btn-sm py-1 text-white bg-danger">Out Stock</label>
+                                @endif
 
                             @endif
                         </div>

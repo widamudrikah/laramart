@@ -12,6 +12,8 @@ class WishlistShow extends Component
         // dd($wishlistId);
         $user_id = Auth::user()->id;
         Whislist::where('user_id', $user_id)->where('id', $wishlistId)->delete();
+
+        // ini untuk update count yang di navbar
         // $this->emit('wishlistAddedUpdated');
         $this->dispatch('wishlistAddedUpdated'); 
 

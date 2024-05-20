@@ -5,6 +5,8 @@ use App\Http\Controllers\Admin\ColorController;
 use App\Http\Controllers\Admin\DashbordController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\SliderController;
+use App\Http\Controllers\Frontend\CartController;
+use App\Http\Controllers\Frontend\CheckoutController;
 use App\Http\Controllers\Frontend\FrontendController;
 use App\Http\Controllers\Frontend\WishlistController;
 use Illuminate\Support\Facades\Auth;
@@ -36,6 +38,14 @@ Route::controller(FrontendController::class)->group(function(){
 Route::middleware(['auth'])->group(function(){
     Route::controller(WishlistController::class)->group(function(){
         Route::get('/wishlist', 'index')->name('wishlist');
+    });
+
+    Route::controller(CartController::class)->group(function(){
+        Route::get('/cart', 'index')->name('cart');
+    });
+
+    Route::controller(CheckoutController::class)->group(function(){
+        Route::get('/checkout', 'index')->name('checkout');
     });
 });
 
