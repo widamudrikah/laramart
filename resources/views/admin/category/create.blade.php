@@ -6,7 +6,7 @@
     <div class="col-md-12 grid-margin">
         <div class="card">
             <div class="card-header">
-                <h3>Category
+                <h3>Add Category
                     <a href="{{ route('category-index')}}" class="btn btn-primary btn-sm text-white float-end">Back</a>
                 </h3>
             </div>

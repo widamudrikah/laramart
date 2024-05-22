@@ -26,6 +26,13 @@
     <link rel="stylesheet" href="{{ asset('assets/css/bootsrap.min.css')}}">
     <link rel="stylesheet" href="{{ asset('assets/css/custome.css')}}">
 
+    <!-- Owl Carousel -->
+    <link rel="stylesheet" href="{{ asset('assets/css/owl.carousel.min.css')}}">
+    <link rel="stylesheet" href="{{ asset('assets/css/owl.theme.default.min.css')}}">
+
+    <!-- Exzoom Prod Image -->
+    <link rel="stylesheet" href="{{ asset('assets/exzoom/jquery.exzoom.css')}}">
+
     <!-- livewire -->
     @livewireStyles
 </head>
@@ -40,6 +47,9 @@
         <main>
             @yield('content')
         </main>
+
+        @include('layouts.include.frontend.footer')
+
     </div>
 
     <!-- Scripts ada masalah sama js bundle dari bootstrap -->
@@ -47,7 +57,14 @@
     <script src="{{ asset('assets/js/jquery.min.js')}}"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
 
+    <!-- Owl Carousel -->
+    <script src="{{ asset('assets/js/owl.carousel.min.js')}}"></script>
+    <!-- Exzoom -->
+    <script src="{{ asset('assets/exzoom/jquery.exzoom.js')}}"></script>
+    @yield('script')
+ 
     @livewireScripts
+    @stack('scripts')
 </body>
 
 </html>

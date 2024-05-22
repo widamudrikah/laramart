@@ -10,9 +10,9 @@
 
     <!-- Sales -->
     <li class="nav-item">
-      <a class="nav-link" href="index.html">
+      <a class="nav-link" href="{{ route('orders-index-admin') }}">
         <i class="mdi mdi-sale menu-icon"></i>
-        <span class="menu-title">Sales</span>
+        <span class="menu-title">Orders</span>
       </a>
     </li>
 
@@ -87,7 +87,7 @@
 
     <!-- Site Setting -->
     <li class="nav-item">
-      <a class="nav-link" href="pages/icons/mdi.html">
+      <a class="nav-link" href="{{ route('setting') }}">
         <i class="mdi mdi-emoticon menu-icon"></i>
         <span class="menu-title">Site Setting</span>
       </a>

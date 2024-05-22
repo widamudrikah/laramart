@@ -42,4 +42,96 @@
     </button>
 </div>
 
+<div class="py-5 bg-white">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8 text-center">
+                <h4>Welcome to LaraMart ✨✨</h4>
+                <div class="underline  mx-auto">
+                </div>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                    Deserunt, dolor fugit impedit et doloremque debitis quis
+                    consequuntur consectetur minima quaerat id veritatis
+                    assumenda dolorem magnam odit explicabo, aperiam temporibus
+                    rerum ducimus enim inventore soluta. Harum nemo placeat iusto
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h4>Trending Product</h4>
+                <div class="underline mb-4"></div>
+            </div>
+
+            @if($trendingProduct)
+            <div class="col-md-12">
+                <div class="owl-carousel owl-theme trending-product">
+                    @foreach($trendingProduct as $product)
+                    <div class="item">
+                        <div class="product-card">
+                            <div class="product-card-img">
+                                <label class="stock bg-danger">New</label>
+
+                                @if($product->productImages->count() > 0)
+                                <a href="{{ url('/collections/'.$product->category->slug.'/'.$product->slug) }}">
+                                    <img src="{{ asset($product->productImages[0]->image) }}" alt="{{$product->name}}">
+                                </a>
+                                @endif
+                            </div>
+                            <div class="product-card-body">
+                                <p class="product-brand">{{ $product->brand}}</p>
+                                <h5 class="product-name">
+                                    <a href="{{ url('/collections/'.$product->category->slug.'/'.$product->slug) }}">
+                                        {{ $product->name}}
+                                    </a>
+                                </h5>
+                                <div>
+                                    <span class="selling-price">{{ $product->selling_price}}</span>
+                                    <span class="original-price">{{ $product->original_price}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @endforeach
+                </div>
+            </div>
+            @else
+            <div class="col-md-12">
+                <div class="p-2">
+                    <h4>No product</h4>
+                </div>
+            </div>
+            @endif
+        </div>
+    </div>
+</div>
+@endsection
+
+@section('script')
+
+<script>
+    $('.trending-product').owlCarousel({
+        loop: true,
+        margin: 10,
+        nav: true,
+        responsive: {
+            0: {
+                items: 1
+            },
+            600: {
+                items: 3
+            },
+            1000: {
+                items: 4
+            }
+        }
+    })
+</script>
+
 @endsection

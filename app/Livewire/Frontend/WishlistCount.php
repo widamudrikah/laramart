@@ -15,8 +15,9 @@ class WishlistCount extends Component
 
     public function checkWishlistCount() {
        if(Auth::check()) {
-        return $this->wishlistCount = Whislist::where('user_id', auth()->user()->id)->count();
+            return $this->wishlistCount = Whislist::where('user_id', auth()->user()->id)->count();
        }else {
+            
         return $this->wishlistCount = 0;
        }
     }

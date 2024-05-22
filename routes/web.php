@@ -1,13 +1,16 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminOrderController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ColorController;
 use App\Http\Controllers\Admin\DashbordController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\Frontend\CheckoutController;
 use App\Http\Controllers\Frontend\FrontendController;
+use App\Http\Controllers\Frontend\OrderController;
 use App\Http\Controllers\Frontend\WishlistController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -33,6 +36,9 @@ Route::controller(FrontendController::class)->group(function(){
     Route::get('/collections', 'categories')->name('categories');
     Route::get('/collections/{category_slug}', 'products')->name('products-category');
     Route::get('/collections/{category_slug}/{product_slug}', 'productView')->name('products-view');
+    Route::get('/new-arrivals', 'newArrivals')->name('new-arrivals');
+
+    Route::get('/thank-you', 'thankYou')->name('thank-you');
 });
 
 Route::middleware(['auth'])->group(function(){
@@ -47,7 +53,16 @@ Route::middleware(['auth'])->group(function(){
     Route::controller(CheckoutController::class)->group(function(){
         Route::get('/checkout', 'index')->name('checkout');
     });
+
+    Route::controller(OrderController::class)->group(function(){
+        Route::get('/orders', 'index')->name('orders');
+        Route::get('/orders/{id}', 'show')->name('order-detail');
+    });
+
+
 });
+
+
 
 Auth::routes();
 
@@ -57,6 +72,12 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function() {
     Route::controller(DashbordController::class)->group(function(){
         Route::get('dashboard', 'index');
+    });
+
+    // Admin Setting
+    Route::controller(SettingController::class)->group(function(){
+        Route::get('setting', 'index')->name('setting');
+        Route::post('setting/store', 'store')->name('store-setting');
     });
 
     // category
@@ -106,6 +127,17 @@ Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function() {
         Route::get('/slider/edit/{slider}', 'edit')->name('slider-edit');
         Route::put('/slider/edit/{slider}', 'update')->name('slider-update');
         Route::get('/slider/delete/{slider}', 'delete')->name('slider-delete');
+    });
+
+    // Admin Orders
+    Route::controller(AdminOrderController::class)->group(function(){
+        Route::get('/orders-admin', 'index')->name('orders-index-admin');
+        Route::get('/orders-admin/{id}', 'show')->name('orders-detail-admin');
+        Route::put('/orders-admin/{id}', 'updateStatus')->name('orders-update-status');
+
+        // invoice order
+        Route::get('/invoice/{id}', 'viewInvoice')->name('view-invoice');
+        Route::get('/invoice/{id}/generate', 'generateInvoice')->name('generate-invoice');
     });
     
 });
