@@ -2,7 +2,7 @@
   <ul class="nav">
     <!-- dashboard -->
     <li class="nav-item">
-      <a class="nav-link" href="index.html">
+      <a class="nav-link" href="{{ url('admin/dashboard') }}">
         <i class="mdi mdi-home menu-icon"></i>
         <span class="menu-title">Dashboard</span>
       </a>
@@ -11,7 +11,7 @@
     <!-- Sales -->
     <li class="nav-item">
       <a class="nav-link" href="{{ route('orders-index-admin') }}">
-        <i class="mdi mdi-sale menu-icon"></i>
+        <i class="mdi mdi-cart menu-icon"></i>
         <span class="menu-title">Orders</span>
       </a>
     </li>
@@ -19,7 +19,7 @@
     <!-- Category -->
     <li class="nav-item">
       <a class="nav-link" data-bs-toggle="collapse" href="#ui-category" aria-expanded="false" aria-controls="ui-category">
-        <i class="mdi mdi-format-list-bulleted menu-icon"></i>
+        <i class="mdi mdi-format-list-bulleted-type menu-icon"></i>
         <span class="menu-title">Category</span>
         <i class="menu-arrow"></i>
       </a>
@@ -34,7 +34,7 @@
     <!-- Product -->
     <li class="nav-item">
       <a class="nav-link" data-bs-toggle="collapse" href="#ui-products" aria-expanded="false" aria-controls="ui-basic">
-        <i class="mdi mdi-plus-box menu-icon"></i>
+        <i class="mdi mdi-shopping menu-icon"></i>
         <span class="menu-title">Product</span>
         <i class="menu-arrow"></i>
       </a>
@@ -80,7 +80,7 @@
     <!-- Home Slider -->
     <li class="nav-item">
       <a class="nav-link" href="{{ route('slider-index') }}">
-        <i class="mdi mdi-emoticon menu-icon"></i>
+        <i class="mdi mdi-view-carousel menu-icon"></i>
         <span class="menu-title">Home Slider</span>
       </a>
     </li>
@@ -88,7 +88,7 @@
     <!-- Site Setting -->
     <li class="nav-item">
       <a class="nav-link" href="{{ route('setting') }}">
-        <i class="mdi mdi-emoticon menu-icon"></i>
+        <i class="mdi mdi-settings menu-icon"></i>
         <span class="menu-title">Site Setting</span>
       </a>
     </li>

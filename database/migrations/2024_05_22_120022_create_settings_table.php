@@ -14,22 +14,22 @@ return new class extends Migration
         Schema::create('settings', function (Blueprint $table) {
             $table->id();
 
-            $table->string('website_name');
-            $table->string('website_url');
-            $table->string('page_title');
-            $table->string('meta_keyword', 500);
-            $table->string('meta_description', 500);
+            $table->string('website_name')->nullable();
+            $table->string('website_url')->nullable();
+            $table->string('page_title')->nullable();
+            $table->string('meta_keyword', 500)->nullable();
+            $table->string('meta_description', 500)->nullable();
 
-            $table->string('address', 500);
-            $table->string('phone1');
-            $table->string('phone2');
-            $table->string('email1');
-            $table->string('email2');
+            $table->string('address', 500)->nullable();
+            $table->string('phone1')->nullable();
+            $table->string('phone2')->nullable();
+            $table->string('email1')->nullable();
+            $table->string('email2')->nullable();
 
-            $table->string('facebook');
-            $table->string('x');
-            $table->string('instagram');
-            $table->string('youtube');
+            $table->string('facebook')->nullable();
+            $table->string('x')->nullable();
+            $table->string('instagram')->nullable();
+            $table->string('youtube')->nullable();
 
             $table->timestamps();
         });

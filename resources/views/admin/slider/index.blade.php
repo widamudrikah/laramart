@@ -14,7 +14,7 @@
             <div class="card-header">
                 <h3>Slider List
                     <a href="{{ route('slider-create')}}" class="btn btn-primary btn-sm text-white float-end">
-                        Add List
+                        Add Slider
                     </a>
                 </h3>
             </div>
@@ -39,8 +39,8 @@
                                 </td>
                                 <td>{{$slider->status == '0' ? 'Visible' : 'Hidden'}}</td>
                                 <td>
-                                    <a href="{{ route('slider-edit', $slider->id) }}" class="btn btn-warning">Edit</a>
-                                    <a href="{{ route('slider-delete', $slider->id) }}" class="btn btn-danger"
+                                    <a href="{{ route('slider-edit', $slider->id) }}" class="btn btn-warning btn-sm mb-2">Edit</a>
+                                    <a href="{{ route('slider-delete', $slider->id) }}" class="btn btn-danger btn-sm"
                                     onclick="return confirm('Are you sure you want to delete this?')"
                                     >Delete</a>
                                 </td>

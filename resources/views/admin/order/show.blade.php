@@ -18,7 +18,7 @@
             <div class="card-body">
                 <h4 class="text-primary">
                     <i class="fa fa-shopping-cart text-dark"></i> Order Detail
-                    <a href="{{ route('orders') }}" class="btn btn-danger btn-sm float-end mx-1">Back</a>
+                    <a href="{{ route('orders-index-admin') }}" class="btn btn-danger btn-sm float-end mx-1">Back</a>
                     <a href="{{ route('generate-invoice', $order->id) }}" class="btn btn-primary btn-sm float-end mx-1">
                         Dowload Invoice
                     </a>

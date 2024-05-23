@@ -7,30 +7,99 @@
         @if(session('message'))
         <h2 class="alert alert-success">{{session('message')}}</h2>
         @endif
-        <div class="d-flex justify-content-between flex-wrap">
-            <div class="d-flex align-items-end flex-wrap">
-                <div class="me-md-3 me-xl-5">
-                    <h2>Dashboard</h2>
-                    <p class="mb-md-0">Your analytics dashboard template.</p>
-                </div>
-                <div class="d-flex">
-                    <i class="mdi mdi-home text-muted hover-cursor"></i>
-                    <p class="text-muted mb-0 hover-cursor">&nbsp;/&nbsp;Dashboard&nbsp;/&nbsp;</p>
-                    <p class="text-primary mb-0 hover-cursor">Analytics</p>
+        <div class="me-md-3 me-xl-5">
+            <h2>Dashboard</h2>
+            <p class="mb-md-0">Your analytics dashboard template.</p>
+            <hr>
+        </div>
+
+        <h2 class="mt-3">Seeling</h2>
+        <hr>
+        <div class="row">
+            <div class="col-md-3">
+                <div class="card card-body bg-primary text-white mb-3 rounded">
+                    <label>Total Order</label>
+                    <h1>{{ $totalOrder }}</h1>
+                    <a href="{{ route('orders-index-admin') }}" class="text-white">View</a>
                 </div>
             </div>
-            <div class="d-flex justify-content-between align-items-end flex-wrap">
-                <button type="button" class="btn btn-light bg-white btn-icon me-3 d-none d-md-block ">
-                    <i class="mdi mdi-download text-muted"></i>
-                </button>
-                <button type="button" class="btn btn-light bg-white btn-icon me-3 mt-2 mt-xl-0">
-                    <i class="mdi mdi-clock-outline text-muted"></i>
-                </button>
-                <button type="button" class="btn btn-light bg-white btn-icon me-3 mt-2 mt-xl-0">
-                    <i class="mdi mdi-plus text-muted"></i>
-                </button>
-                <button class="btn btn-primary mt-2 mt-xl-0">Generate report</button>
+            <div class="col-md-3">
+                <div class="card card-body bg-success text-white mb-3 rounded">
+                    <label>Today Order</label>
+                    <h1>{{ $todayOrder }}</h1>
+                    <a href="{{ route('orders-index-admin') }}" class="text-white">View</a>
+                </div>
             </div>
+            <div class="col-md-3">
+                <div class="card card-body bg-danger text-white mb-3 rounded">
+                    <label>This Month Order</label>
+                    <h1>{{ $thisMonthOrder }}</h1>
+                    <a href="{{ route('orders-index-admin') }}" class="text-white">View</a>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card card-body bg-warning text-white mb-3 rounded">
+                    <label>This Year Order</label>
+                    <h1>{{ $thisYearOrder }}</h1>
+                    <a href="{{ route('orders-index-admin') }}" class="text-white">View</a>
+                </div>
+            </div>
+        </div>
+        
+
+        <h2 class="mt-3">Items</h2>
+        <hr>
+        <div class="row">
+            <div class="col-md-3">
+                <div class="card card-body bg-primary text-white mb-3 rounded">
+                    <label>Total Product</label>
+                    <h1>{{ $totalProduct }}</h1>
+                    <a href="{{ route('product-index') }}" class="text-white">View</a>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card card-body bg-success text-white mb-3 rounded">
+                    <label>Total Categories</label>
+                    <h1>{{ $totalCategories }}</h1>
+                    <a href="{{ route('category-index') }}" class="text-white">View</a>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card card-body bg-danger text-white mb-3 rounded">
+                    <label>Total Brands</label>
+                    <h1>{{ $totalBrands }}</h1>
+                    <a href="{{ route('brands') }}" class="text-white">View</a>
+                </div>
+            </div>
+            
+        </div>
+
+
+        <h2 class="mt-3">Users</h2>
+        <hr>
+        <div class="row">
+            <div class="col-md-3">
+                <div class="card card-body bg-primary text-white mb-3 rounded">
+                    <label>All Users</label>
+                    <h1>{{ $totalAllUser }}</h1>
+                    <a href="#" class="text-white">View</a>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card card-body bg-success text-white mb-3 rounded">
+                    <label>Total Admin</label>
+                    <h1>{{ $totalAdmin }}</h1>
+                    <a href="#" class="text-white">View</a>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card card-body bg-danger text-white mb-3 rounded">
+                    <label>Total User</label>
+                    <h1>{{ $totalUser }}</h1>
+                    <a href="#" class="text-white">View</a>
+                </div>
+            </div>
+            
         </div>
     </div>
 </div>
