@@ -2,7 +2,7 @@
     <div class="top-navbar">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-md-2 my-auto d-none d-sm-none d-md-block d-lg-block">
+                <div class="col-md-2 px-5 my-auto d-none d-sm-none d-md-block d-lg-block">
                     <h5 class="brand-name">{{ $appSetting->website_name ?? 'Website Name' }}</h5>
                 </div>
                 <div class="col-md-5 my-auto">
@@ -80,7 +80,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <ul class="navbar-nav px-3 me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url('/') }}">Home</a>
                     </li>
@@ -91,13 +91,10 @@
                         <a class="nav-link" href="{{ route('new-arrivals') }}">New Arrivals</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Electronics</a>
+                        <a class="nav-link" href="#">Skincare</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Fashions</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Accessories</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Home</a>

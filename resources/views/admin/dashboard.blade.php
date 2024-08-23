@@ -13,8 +13,6 @@
             <hr>
         </div>
 
-        <h2 class="mt-3">Seeling</h2>
-        <hr>
         <div class="row">
             <div class="col-md-3">
                 <div class="card card-body bg-primary text-white mb-3 rounded">

@@ -10,11 +10,12 @@
 
     <!-- title diaganti yahhh -->
     <title> @yield('title')</title>
+    <link rel="icon" type="image/x-icon" href="{{ asset('assets/image/icon.png') }}">
 
     <meta name="description" content="@yield('meta_description')">
     <meta name="keywords" content="@yield('meta_keyword')">
     <meta name="author" content="Wida Mudrikah">
-
+    
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">

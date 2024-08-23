@@ -59,24 +59,7 @@
                     <p class=""> &copy; 2022 - Funda of Web IT - Ecommerce. All rights reserved.</p>
                 </div>
                 <div class="col-md-4">
-                    <div class="social-media">
-                        Get Connected:
-                        {{ $appSetting->phone1 ?? 'Phone 1' }}
-
-                        @if($appSetting->facebook)
-                        <a href="{{ $appSetting->facebook }}" target="_blank"><i class="fa fa-facebook"></i></a>
-                        @endif
-                        @if($appSetting->x)
-                        <a href="{{ $appSetting->x }}" target="_blank"><i class="fa fa-twitter"></i></a>
-                        @endif
-                        @if($appSetting->instagram)
-                        <a href="{{ $appSetting->instagram }}" target="_blank"><i class="fa fa-instagram"></i></a>
-                        @endif
-                        @if($appSetting->youtube)
-                        <a href="{{ $appSetting->youtube }}" target="_blank"><i class="fa fa-youtube"></i></a>
-                        @endif
-                        
-                    </div>
+                    <!-- ini -->
                 </div>
             </div>
         </div>

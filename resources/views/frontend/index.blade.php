@@ -92,8 +92,8 @@
                                     </a>
                                 </h5>
                                 <div>
-                                    <span class="selling-price">{{ $product->selling_price}}</span>
-                                    <span class="original-price">{{ $product->original_price}}</span>
+                                    <span class="selling-price">@rupiah($product->selling_price)</span>
+                                    <span class="original-price">@rupiah($product->original_price)</span>
                                 </div>
                             </div>
                         </div>
@@ -112,7 +112,7 @@
     </div>
 </div>
 
-<div class="py-5 bg-white">
+<div class="py-5">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -143,8 +143,8 @@
                                     </a>
                                 </h5>
                                 <div>
-                                    <span class="selling-price">{{ $product->selling_price}}</span>
-                                    <span class="original-price">{{ $product->original_price}}</span>
+                                    <span class="selling-price">@rupiah($product->selling_price)</span>
+                                    <span class="original-price">@rupiah($product->original_price)</span>
                                 </div>
                             </div>
                         </div>
@@ -156,6 +156,99 @@
             <div class="col-md-12">
                 <div class="p-2">
                     <h4>No New Arrivals Available</h4>
+                </div>
+            </div>
+            @endif
+        </div>
+    </div>
+</div>
+
+
+<div class="py-5">
+    <div class="container">
+        <div class="row">
+            @if($trendingProduct)
+            <div class="col-md-12">
+                <div class="owl-carousel owl-theme four-carousel">
+                    @foreach($trendingProduct as $product)
+                    <div class="item">
+                        <div class="product-card">
+                            <div class="product-card-img">
+                                <label class="stock bg-warning">Trending</label>
+
+                                @if($product->productImages->count() > 0)
+                                <a href="{{ url('/collections/'.$product->category->slug.'/'.$product->slug) }}">
+                                    <img src="{{ asset($product->productImages[0]->image) }}" alt="{{$product->name}}">
+                                </a>
+                                @endif
+                            </div>
+                            <div class="product-card-body">
+                                <p class="product-brand">{{ $product->brand}}</p>
+                                <h5 class="product-name">
+                                    <a href="{{ url('/collections/'.$product->category->slug.'/'.$product->slug) }}">
+                                        {{ $product->name}}
+                                    </a>
+                                </h5>
+                                <div>
+                                    <span class="selling-price">@rupiah($product->selling_price)</span>
+                                    <span class="original-price">@rupiah($product->original_price)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @endforeach
+                </div>
+            </div>
+            @else
+            <div class="col-md-12">
+                <div class="p-2">
+                    <h4>No product</h4>
+                </div>
+            </div>
+            @endif
+        </div>
+    </div>
+</div>
+
+<div class="py-5">
+    <div class="container">
+        <div class="row">
+            @if($trendingProduct)
+            <div class="col-md-12">
+                <div class="owl-carousel owl-theme four-carousel">
+                    @foreach($trendingProduct as $product)
+                    <div class="item">
+                        <div class="product-card">
+                            <div class="product-card-img">
+                                <label class="stock bg-warning">Trending</label>
+
+                                @if($product->productImages->count() > 0)
+                                <a href="{{ url('/collections/'.$product->category->slug.'/'.$product->slug) }}">
+                                    <img src="{{ asset($product->productImages[0]->image) }}" alt="{{$product->name}}">
+                                </a>
+                                @endif
+                            </div>
+                            <div class="product-card-body">
+                                <p class="product-brand">{{ $product->brand}}</p>
+                                <h5 class="product-name">
+                                    <a href="{{ url('/collections/'.$product->category->slug.'/'.$product->slug) }}">
+                                        {{ $product->name}}
+                                    </a>
+                                </h5>
+                                <div>
+                                    <span class="selling-price">@rupiah($product->selling_price)</span>
+                                    <span class="original-price">@rupiah($product->original_price)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @endforeach
+                </div>
+            </div>
+            @else
+            <div class="col-md-12">
+                <div class="p-2">
+                    <h4>No product</h4>
                 </div>
             </div>
             @endif
